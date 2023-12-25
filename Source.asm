@@ -1,5 +1,6 @@
-Include Irvine32.inc
-includelib winmm.lib
+INCLUDE Irvine32.inc
+INCLUDELIB winmm.lib
+INCLUDELIB Kernel32.lib
 
 PlaySound PROTO,
         pszSound:PTR BYTE, 
@@ -10,7 +11,7 @@ PlaySound PROTO,
 
 ;; Printing
 
-splashScreenText			BYTE "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",0ah
+splashScreenText	BYTE "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",0ah
 					BYTE "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",0ah
 					BYTE "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",0ah
 					BYTE "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",0ah
@@ -32,19 +33,19 @@ splashScreenText			BYTE "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 					BYTE "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",0ah,0ah,0ah,0ah,0ah,0	
 
 
-enterName				BYTE "                            ___ _  _ _____ ___ ___   _  _   _   __  __ ___ ", 0ah
+enterName			BYTE "                            ___ _  _ _____ ___ ___   _  _   _   __  __ ___ ", 0ah
 					BYTE "                           | __| \| |_   _| __| _ \ | \| | /_\ |  \/  | __|", 0ah
 					BYTE "                           | _|| .` | | | | _||   / | .` |/ _ \| |\/| | _| ", 0ah
 					BYTE "                           |___|_|\_| |_| |___|_|_\ |_|\_/_/ \_\_|  |_|___|", 0ah, 0
 
-viewHighscores				BYTE "		   _    _ _____ _____ _    _  _____  _____ ____  _____  ______  _____ ",0ah 
+viewHighscores		BYTE "		   _    _ _____ _____ _    _  _____  _____ ____  _____  ______  _____ ",0ah 
 					BYTE "		  | |  | |_   _/ ____| |  | |/ ____|/ ____/ __ \|  __ \|  ____|/ ____|",0ah
 					BYTE "		  | |__| | | || |  __| |__| | (___ | |   | |  | | |__) | |__  | (___  ",0ah
 					BYTE "		  |  __  | | || | |_ |  __  |\___ \| |   | |  | |  _  /|  __|  \___ \ ",0ah
 					BYTE "		  | |  | |_| || |__| | |  | |____) | |___| |__| | | \ \| |____ ____) |",0ah
 					BYTE "		  |_|  |_|_____\_____|_|  |_|_____/ \_____\____/|_|  \_\______|_____/ ",0ah,0
 
-gameOver				BYTE 10, 9,9, 32, 32, 220, 219, 219, 219, 219, 32, 32, 220, 220, 220, 32, 32, 32, 32, 32, 32, 32, 219, 219, 219, 220, 32, 220, 219, 219, 219, 178, 178, 219, 219, 219, 219
+gameOver			BYTE 10, 9,9, 32, 32, 220, 219, 219, 219, 219, 32, 32, 220, 220, 220, 32, 32, 32, 32, 32, 32, 32, 219, 219, 219, 220, 32, 220, 219, 219, 219, 178, 178, 219, 219, 219, 219
 					BYTE 219, 32, 32, 177, 219, 219, 219, 219, 219, 32, 32, 32, 219, 219, 177, 32, 32, 32, 219, 178, 178, 219, 219, 219, 219, 219, 32, 32, 219, 219, 223, 219, 219, 219, 32
 					BYTE 32, 10, 9,9, 32, 219, 219, 177, 32, 223, 219, 177, 177, 219, 219, 219, 219, 220, 32, 32, 32, 32, 178, 219, 219, 177, 223, 219, 223, 32, 219, 219, 177, 178, 219, 32, 32
 					BYTE 32, 223, 32, 177, 219, 219, 177, 32, 32, 219, 219, 177, 178, 219, 219, 176, 32, 32, 32, 219, 177, 178, 219, 32, 32, 32, 223, 32, 178, 219, 219, 32, 177, 32, 219
@@ -81,14 +82,14 @@ map					BYTE "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 					BYTE "||*||||||*||||||*||||||||||||||||*||*||||| ||||||-----|||||| |||||*||*||||||||||||||||*||||||*||||||*||",0ah
 					BYTE "||*||||||*||||||*||||||||||||||||*||****|| ||             || ||****||*||||||||||||||||*||||||*||||||*||",0ah
 					BYTE "||*||||||o*******||||||||||||||||*|||||*|| || ||||||||||| || ||*|||||*||||||||||||||||********||||||*||",0ah
-					BYTE "||*|||||||||||||*******||||*******||****|| ||             || ||****||*******||||*******|||||||||||||*||",0ah
-					BYTE "||*|||||||||||||*|||||*||||*|||||*||*||||| ||||||||||||||||| |||||*||*|||||*||||*|||||*|||||||||||||*||",0ah
-					BYTE "/***************************|||||*********                   ********o|||||***************************/",0ah
-					BYTE "||*||||*||||||||*||||||||||*|||||||||*||||*|||||||||||||||||*||||*|||||||||*||||||||||*||||||||*||||*||",0ah
-					BYTE "||*||||*||||||||*||||||||||*|||||||||*||||*******|||||*******||||*|||||||||*||||||||||*||||||||*||||*||",0ah
-					BYTE "||*||||*||||||||*||||************||||*||||||||||*|||||*||||||||||*||||************||||*||||||||*||||*||",0ah
-					BYTE "||*||||**********||||*|||||*||||*||||*||||||||||*|||||*||||||||||*||||*||||*|||||*||||**********||||*||",0ah
-					BYTE "||*||||||||*||||***********o||||***************************************||||************||||*||||||||*||",0ah
+					BYTE "||*|||||||||||||*******||||*******||****|| || ||||||||||| || ||****||*******||||*******|||||||||||||*||",0ah
+					BYTE "||*|||||||||||||*|||||*||||*|||||*||*||||| ||             || |||||*||*|||||*||||*|||||*|||||||||||||*||",0ah
+					BYTE "/***************************|||||********* ||||||||||||||||| ********o|||||***************************/",0ah
+					BYTE "||*||||*||||||||*||||||||||*|||||||||*|||| ||||||||||||||||| ||||*|||||||||*||||||||||*||||||||*||||*||",0ah
+					BYTE "||*||||*||||||||*||||||||||*|||||||||*||||       |||||       ||||*|||||||||*||||||||||*||||||||*||||*||",0ah
+					BYTE "||*||||*||||||||*||||************||||*|||||||||| ||||| ||||||||||*||||************||||*||||||||*||||*||",0ah
+					BYTE "||*||||**********||||*|||||*||||*||||*|||||||||| ||||| ||||||||||*||||*||||*|||||*||||**********||||*||",0ah
+					BYTE "||*||||||||*||||***********o||||****************       ****************||||************||||*||||||||*||",0ah
 					BYTE "||*||||||||*||||*||||*|||||*||||*||||*||||*|||||||||||||||||*||||*||||*||||*|||||*||||*||||*||||||||*||",0ah
 					BYTE "||*||||*****||||*||||************||||*||||*|||||*******|||||*||||*||||************||||*||||****o||||*||",0ah
 					BYTE "||*||||*||||||||*||||||||||||||||||||*||||*|||||*|||||*|||||*||||*||||||||||||||||||||*||||||||*||||*||",0ah
@@ -97,7 +98,7 @@ map					BYTE "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 					BYTE "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||",0ah,0ah,0ah,0
 
 
-mapTemp					BYTE "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||",0ah
+mapTemp				BYTE "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||",0ah
 					BYTE "||***************************************************************************************************||",0ah
 					BYTE "||*||||||*||||||*||||||||||||||||*||||*||||||||*|||*|||*||||||||*||||*||||||||||||||||*||||||*||||||*||",0ah
 					BYTE "||o||||||*||||||******o||||*******||||*||||||||*|||*|||*||||||||*||||*******||||*******||||||*||||||*||",0ah
@@ -112,14 +113,14 @@ mapTemp					BYTE "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 					BYTE "||*||||||*||||||*||||||||||||||||*||*||||| ||||||-----|||||| |||||*||*||||||||||||||||*||||||*||||||*||",0ah
 					BYTE "||*||||||*||||||*||||||||||||||||*||****|| ||             || ||****||*||||||||||||||||*||||||*||||||*||",0ah
 					BYTE "||*||||||o*******||||||||||||||||*|||||*|| || ||||||||||| || ||*|||||*||||||||||||||||********||||||*||",0ah
-					BYTE "||*|||||||||||||*******||||*******||****|| ||             || ||****||*******||||*******|||||||||||||*||",0ah
-					BYTE "||*|||||||||||||*|||||*||||*|||||*||*||||| ||||||||||||||||| |||||*||*|||||*||||*|||||*|||||||||||||*||",0ah
-					BYTE "/***************************|||||*********                   ********o|||||***************************/",0ah
-					BYTE "||*||||*||||||||*||||||||||*|||||||||*||||*|||||||||||||||||*||||*|||||||||*||||||||||*||||||||*||||*||",0ah
-					BYTE "||*||||*||||||||*||||||||||*|||||||||*||||*******|||||*******||||*|||||||||*||||||||||*||||||||*||||*||",0ah
-					BYTE "||*||||*||||||||*||||************||||*||||||||||*|||||*||||||||||*||||************||||*||||||||*||||*||",0ah
-					BYTE "||*||||**********||||*|||||*||||*||||*||||||||||*|||||*||||||||||*||||*||||*|||||*||||**********||||*||",0ah
-					BYTE "||*||||||||*||||***********o||||***************************************||||************||||*||||||||*||",0ah
+					BYTE "||*|||||||||||||*******||||*******||****|| || ||||||||||| || ||****||*******||||*******|||||||||||||*||",0ah
+					BYTE "||*|||||||||||||*|||||*||||*|||||*||*||||| ||             || |||||*||*|||||*||||*|||||*|||||||||||||*||",0ah
+					BYTE "/***************************|||||********* ||||||||||||||||| ********o|||||***************************/",0ah
+					BYTE "||*||||*||||||||*||||||||||*|||||||||*|||| ||||||||||||||||| ||||*|||||||||*||||||||||*||||||||*||||*||",0ah
+					BYTE "||*||||*||||||||*||||||||||*|||||||||*||||       |||||       ||||*|||||||||*||||||||||*||||||||*||||*||",0ah
+					BYTE "||*||||*||||||||*||||************||||*|||||||||| ||||| ||||||||||*||||************||||*||||||||*||||*||",0ah
+					BYTE "||*||||**********||||*|||||*||||*||||*|||||||||| ||||| ||||||||||*||||*||||*|||||*||||**********||||*||",0ah
+					BYTE "||*||||||||*||||***********o||||****************       ****************||||************||||*||||||||*||",0ah
 					BYTE "||*||||||||*||||*||||*|||||*||||*||||*||||*|||||||||||||||||*||||*||||*||||*|||||*||||*||||*||||||||*||",0ah
 					BYTE "||*||||*****||||*||||************||||*||||*|||||*******|||||*||||*||||************||||*||||****o||||*||",0ah
 					BYTE "||*||||*||||||||*||||||||||||||||||||*||||*|||||*|||||*|||||*||||*||||||||||||||||||||*||||||||*||||*||",0ah
@@ -127,7 +128,7 @@ mapTemp					BYTE "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 					BYTE "||o**********************************************|||||***********************************************||",0ah
 					BYTE "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||",0ah,0ah,0ah,0
 
-instructions				BYTE "                                                                                                        ",0ah
+instructions		BYTE "                                                                                                        ",0ah
 					BYTE "       COLLECT PELLETS                                                        DODGE GHOSTS!             ",0ah
 					BYTE "             [*]                                                                [A B C D]               ",0ah
 					BYTE "                                                                                                        ",0ah
@@ -143,23 +144,25 @@ instructions				BYTE "                                                          
 					BYTE "                                                                                                        ",0ah
 					BYTE "       POWER PELLETS                 USE WASD TO MOVE YOUR PACMAN             BONUS FRUITS              ",0ah
 					BYTE "           [O]                                                                  [. . .]                 ",0
-pressPToStart				BYTE "                                          PRESS P TO PLAY                                               ",0
+pressPToStart		BYTE "                                          PRESS P TO PLAY                                               ",0
 
-pressTo					BYTE "                                   -------------------------------                                      ",0ah
+pressTo				BYTE "                                   -------------------------------                                      ",0ah
 					BYTE "                                     PRESS 'P' TO START NEW GAME                                        ",0ah
 					BYTE "                                         PRESS 'X' TO EXIT                                              ",0ah
 					BYTE "                                    PRESS 'H' TO VIEW HIGH SCORES                                       ",0ah
 					BYTE "                                   -------------------------------                                      ",0ah, 0
 
-credits					BYTE "A game by Arqamz",0ah,0
+credits				BYTE "A game by Arqamz",0ah,0
 
-yourScoreText				BYTE "YOUR SCORE: ",0
+yourScoreText		BYTE "YOUR SCORE: ",0
 
 readyText           BYTE "READY",0
 levelText           BYTE "LEVEL",0
 scoreText           BYTE "SCORE",0
 pauseText			BYTE "PAUSED",0
+highscoreText		BYTE " HIGHSCORE ",0
 blinkText			BYTE "      ",0
+threeSpacesText		BYTE "   ",0
 
 ;; Constants
 
@@ -198,6 +201,9 @@ pelletCounter		WORD 0
 levelChangedFlag	BYTE 0
 gameOverFlag		BYTE 0
 
+HighscoreString		BYTE 5 dup("0"),0
+allTimeHighscore	WORD 0
+
 ;; Pacman
 
 xPos                BYTE ?
@@ -213,6 +219,51 @@ pacmanCharacter     BYTE 219
 collision           BYTE 0
 eatableCollected    BYTE 0
 fruitCollected      BYTE 0
+
+powerPelletMode		BYTE 0
+
+;; Ghost
+ghostX				BYTE 50
+ghostY				BYTE 20
+
+tempGhostX			BYTE 50
+tempGhostY			BYTE 20
+
+ghostDirection		BYTE 3
+
+blinkyX				BYTE 49
+blinkyY				BYTE 11
+blinkyDirection		BYTE 1
+
+pinkyX				BYTE 48
+pinkyY				BYTE 11
+pinkyDirection		BYTE 2
+
+inkyX				BYTE 50
+inkyY				BYTE 11
+inkyDirection		BYTE 3
+
+clydeX				BYTE 51
+clydeY				BYTE 11
+clydeDirection		BYTE 4
+
+currentGhost		BYTE 1
+
+ghostCollision		BYTE 0
+
+ghostUpValid		BYTE 0
+ghostLeftValid		BYTE 0
+ghostDownValid		BYTE 0
+ghostRightValid		BYTE 0
+validDirectionsArr	BYTE 4 dup(?)
+countValidDirects	BYTE 0
+
+;; Timer
+
+sTime				SYSTEMTIME <>
+cTime				SYSTEMTIME <>
+powerPelletTime		DWORD 0
+ghostInBoxTime		DWORD 0
 
 ;; Sounds
 
@@ -245,7 +296,6 @@ filehandle HANDLE ?
 .code
 
 main PROC
-	;call UpdateHighscores
 	call CreditScreen
 	call SplashScreen
 	call InstructionScreen
@@ -254,19 +304,53 @@ main PROC
 	exit
 main ENDP
 
+;;;;;System Procedures;;;;;
+
+UTime PROC
+    invoke GetSystemTime, ADDR cTime
+    mov ax, cTime.wSecond
+    sub ax, sTime.wSecond
+    cmp ax, 1      
+	inc powerPelletTime
+	inc ghostInBoxTime
+    mov ax, cTime.wSecond
+    mov sTime.wSecond, ax
+    NotPassed:
+    ret
+UTime ENDP
+
 ;;;;;Game Procedures;;;;;
 
 GetAllTimeHighscore PROC
-ret
+	mov edx,OFFSET fileName
+	call OpenInputFile
+	mov fileHandle, eax
+	mov edx, OFFSET HighscoreString
+	mov ecx, 5
+	push edx
+	push ecx
+	call ReadFromFile
+	pop ecx
+	pop edx
+	xor eax, eax
+	call ParseDecimal32
+    mov allTimeHighscore, ax
+	mov eax,fileHandle
+	call CloseFile
+	ret
 GetAllTimeHighscore ENDP
 
 Game PROC
+	call GetAllTimeHighscore
 	mov level, 1
 	mov score, 0
 	; ENTER NAME
 startGame:
+	invoke GetSystemTime, ADDR sTime
 	mov levelChangedFlag, 0
 	mov pelletCounter, 0
+	mov powerPelletMode, 0
+	mov powerPelletTime, 0
 	call ResetMap
 	call SetupGameScreen
 	call GameLoop
@@ -276,6 +360,7 @@ startGame:
 	je startGame
 	cmp ah, 1
 	jne startGame
+	call UpdateHighscores
 	call GameOverScreen
 	ret
 Game ENDP
@@ -296,9 +381,9 @@ ResetMap ENDP
 
 GameLoop PROC
 toGameLoop:
+	call UTime
 	call LevelChange
-	mov al, levelChangedFlag
-	cmp al, 1
+	cmp levelChangedFlag, 1
 	je exitGameLoop
 	call IfOneUp
 	call GenerateFruit
@@ -307,7 +392,8 @@ toGameLoop:
 	mov eax, 50
 	call delay
 
-	;call BlinkyPinkyInkyClyde
+	call BlinkyPinkyInkyClyde
+
 	; CALL CHECK PACMAN COLLIDING WITH GHOSTS
 	; IF TRUE LIVES --
 	; IF LIVES <= 0
@@ -338,14 +424,10 @@ exitGameLoop:
 GameLoop ENDP
 
 LevelChange PROC
-	mov ax, pelletCounter
-	cmp ax, 250;948
+	cmp pelletCounter, 150 ; 948
 	jne noLevelChange
-	xor ax, ax
-	mov pelletCounter, ax
-	mov al, level
-	inc al
-	mov level, al
+	mov pelletCounter, 0
+	inc level
 	mov levelChangedFlag, 1
 noLevelChange:
 	ret
@@ -374,7 +456,7 @@ GenerateFruit PROC
 
 printCherry:
 	mov dl, 51
-	mov dh, 17
+	mov dh, 22
 	call gotoxy
 
 	mov eax, red
@@ -394,7 +476,7 @@ printOrange:
 	jne printApple
 	mov fruitCollected, 0
 	mov dl, 51
-	mov dh, 17
+	mov dh, 22
 	call gotoxy
 
 	mov eax, brown
@@ -415,7 +497,7 @@ printApple:
 	jne generated
 	mov fruitCollected, 0
 	mov dl, 51
-	mov dh, 17
+	mov dh, 22
 	call gotoxy
 	
 	mov eax, 13
@@ -487,7 +569,7 @@ UpdateHighscores PROC
 
 	call ConvertCurrentScoreToString
 	
-	mov edx,OFFSET filename
+	mov edx,OFFSET fileName
 	call OpenInputFile
 	mov fileHandle, eax
 	
@@ -528,7 +610,7 @@ UpdateHighscores PROC
 		mov eax,fileHandle
 		call CloseFile
 	
-		mov edx,OFFSET filename
+		mov edx,OFFSET fileName
 		call CreateOutputFile
 		mov fileHandle, eax
 
@@ -545,9 +627,8 @@ UpdateHighscores PROC
 UpdateHighscores ENDP
 
 ConvertCurrentScoreToString PROC uses esi eax ebx
-	;My 5 digit score
     movzx eax, score
-    ; Initialize registers
+
     mov ecx, 10
     mov ebx, offset scoreStr
 
@@ -591,7 +672,7 @@ ConvertCurrentScoreToString ENDP
 CompareScores PROC uses edx
     push esi
     mov edx, offset scoreStr
-    mov ecx, 5 ; Set the loop count to 5 for comparing 5 bytes
+    mov ecx, 5
 
 compare_loop:
     mov al, [esi]
@@ -600,7 +681,7 @@ compare_loop:
 
     inc esi
     inc edx
-    loop compare_loop ; Continue the loop for the remaining bytes
+    loop compare_loop
 
 return:
     pop esi
@@ -626,7 +707,6 @@ WriteReadBufferLine ENDP
 
 InsertCurrentData PROC uses esi ecx eax
 	
-	;moving score
 	mov esi, offset scoreStr
 	mov ecx, 5
 	
@@ -637,7 +717,6 @@ InsertCurrentData PROC uses esi ecx eax
 		inc edi
 	loop ScoreLoop
 		
-	;bar
 	mov byte ptr [edi], '|'
 	inc edi
 	
@@ -647,7 +726,6 @@ InsertCurrentData PROC uses esi ecx eax
 	inc edi
 
 
-	;bar
 	mov byte ptr [edi], '|'
 	inc edi
 	
@@ -784,25 +862,20 @@ checkD:
 	jmp updatecurrentPacmanDir
 
 updatecurrentPacmanDir:
-	call SetPacmanDirection
+	mov currentPacmanDir, bl
 
 	call CollectClearDraw
 
 	jmp exitMovementFunc
 
 MoveInCurrentDirection:
-	call MovePlayerInCurrentDirection
+	call MovePacmanInCurrentDirection
 
 exitMovementFunc:
 	ret
 PacmanMovement ENDP
 
-SetPacmanDirection PROC
-	mov currentPacmanDir, bl
-	ret
-SetPacmanDirection ENDP
-
-MovePlayerInCurrentDirection PROC
+MovePacmanInCurrentDirection PROC
 	mov bl, currentPacmanDir
 
 checkDirectionUp:
@@ -850,7 +923,7 @@ checkDirectionRight:
 
 exitFunc:
 	ret
-MovePlayerInCurrentDirection ENDP
+MovePacmanInCurrentDirection ENDP
 
 CollectClearDraw PROC
 	call EatableAtCurrent
@@ -904,6 +977,8 @@ checkApple:
 powerPelletScore:
 	cmp eatableCollected, 3
 	jne dontUpdateScore
+	mov powerPelletTime, 0
+	mov powerPelletMode, 1
 	inc pelletCounter
 	mov bx, 50
 	invoke PlaySound, 0, 0, 0
@@ -976,6 +1051,33 @@ NoTeleport:
 	ret
 UpdatePacmanPosition ENDP
 
+COMMENT #
+DrawPacman PROC
+	cmp powerPelletMode, 1
+	jne drawYellow
+	cmp time, 5
+	je drawYellow
+	mov eax,blue + blue*16
+	call SetTextColor
+	jmp drawPacmanthingy
+
+drawYellow:
+	mov powerPelletMode, 0
+	;mov time, 0
+	mov eax,yellow
+	call SetTextColor
+drawPacmanthingy:
+	mov dl,xPos
+	mov dh,yPos
+	call Gotoxy
+
+	call SetPacmanCharacter
+	call WriteChar
+
+	ret
+DrawPacman ENDP
+#
+
 DrawPacman PROC
 	mov eax,yellow
 	call SetTextColor
@@ -997,25 +1099,25 @@ SetPacmanCharacter PROC
 checkUp:
 	cmp bl, 8
 	jne checkLeft
-	mov al, 118
+	mov al, 118 ; v
 	jmp updated
 
 checkLeft:
 	cmp bl, 4
 	jne checkDown
-	mov al, 62
+	mov al, 62 ; >
 	jmp updated
 
 checkDown:
 	cmp bl, 2
 	jne checkRight
-	mov al, 94
+	mov al, 94 ; ^
 	jmp updated
 
 checkRight:
 	cmp bl, 6
 	jne fin
-	mov al, 60
+	mov al, 60 ; <
 	jmp updated
 
 updated:
@@ -1173,9 +1275,408 @@ CheckWallAtTemp ENDP
 
 ;;;;;Ghost Procedures;;;;;
 
+BlinkyPinkyInkyClyde PROC
+	mov currentGhost, 1
+	mov al, blinkyX
+	mov ah, blinkyY
+	mov ghostX, al
+	mov ghostY, ah
+	mov al, blinkyDirection
+	mov ghostDirection, al
+	call GhostMovement
+	mov al, ghostX
+	mov ah, ghostY
+	mov blinkyX, al
+	mov blinkyY, ah
+	mov al, ghostDirection
+	mov blinkyDirection, al
+
+	mov currentGhost, 2
+	mov al, pinkyX
+	mov ah, pinkyY
+	mov ghostX, al
+	mov ghostY, ah
+	mov al, pinkyDirection
+	mov ghostDirection, al
+	call GhostMovement
+	mov al, ghostX
+	mov ah, ghostY
+	mov pinkyX, al
+	mov pinkyY, ah
+	mov al, ghostDirection
+	mov PinkyDirection, al
+
+	mov currentGhost, 3
+	mov al, inkyX
+	mov ah, inkyY
+	mov ghostX, al
+	mov ghostY, ah
+	mov al, inkyDirection
+	mov ghostDirection, al
+	call GhostMovement
+	mov al, ghostX
+	mov ah, ghostY
+	mov inkyX, al
+	mov inkyY, ah
+	mov al, ghostDirection
+	mov inkyDirection, al
+
+	mov currentGhost, 4
+	mov al, clydeX
+	mov ah, clydeY
+	mov ghostX, al
+	mov ghostY, ah
+	mov al, clydeDirection
+	mov ghostDirection, al
+	call GhostMovement
+	mov al, ghostX
+	mov ah, ghostY
+	mov clydeX, al
+	mov clydeY, ah
+	mov al, ghostDirection
+	mov clydeDirection, al
+
+	ret
+BlinkyPinkyInkyClyde ENDP
+
+GhostMovement PROC
+
+	call GenerateGhostDirectionPossibilities
+
+	call Randomize
+	movzx eax, countValidDirects
+	call RandomRange
+	mov esi, offset validDirectionsArr
+	mov bl, [esi+eax]
+	mov ghostDirection, bl
+
+	call ClearGhostCurrent
+	call UpdateGhostPosition
+	call DrawGhost
+
+	ret
+
+GhostMovement ENDP
+
+GenerateGhostDirectionPossibilities PROC
+	mov countValidDirects, 0
+
+checkGhostCollisions:
+
+	checkGhostCollisionUpwards:
+		mov ghostUpValid, 0
+		call CheckGhostCollisionUp
+		cmp ghostCollision, 1
+		je checkGhostCollisionLeftwards
+		mov ghostUpValid, 1
+		inc countValidDirects
+
+	checkGhostCollisionLeftwards:
+		mov ghostLeftValid, 0
+
+		call CheckGhostCollisionLeft
+		cmp ghostCollision, 1
+		je checkGhostCollisionDownwards
+		mov ghostLeftValid, 1
+		inc countValidDirects
+
+	checkGhostCollisionDownwards:
+		mov ghostDownValid, 0
+
+		call CheckghostCollisionDown
+		cmp ghostCollision, 1
+		je checkGhostCollisionRightwards
+		mov ghostDownValid, 1
+		inc countValidDirects
+
+	checkGhostCollisionRightwards:
+		mov ghostRightValid, 0
+
+		call CheckghostCollisionRight
+		cmp ghostCollision, 1
+		je resetOpposites
+		mov ghostRightValid, 1
+		inc countValidDirects
+
+resetOpposites:
+		mov bl, ghostDirection
+
+	checkOpposites1:
+		cmp bl, 1
+		jne checkOpposites2
+		cmp ghostDownValid, 1
+		jne checkOpposites2
+
+		mov ghostDownValid, 0
+		dec countValidDirects
+
+	checkOpposites2:
+		cmp bl, 2
+		jne checkOpposites3
+		cmp ghostRightValid, 1
+		jne checkOpposites3
+
+		mov ghostRightValid, 0
+		dec countValidDirects
+
+	checkOpposites3:
+		cmp bl, 3
+		jne checkOpposites4
+		cmp ghostUpValid, 1
+		jne checkOpposites4
+
+		mov ghostUpValid, 0
+		dec countValidDirects
+
+	checkOpposites4:
+		cmp bl, 4
+		jne insertAllValidDirections
+		cmp ghostLeftValid, 1
+		jne insertAllValidDirections
+
+		mov ghostLeftValid, 0
+		dec countValidDirects
+
+insertAllValidDirections:
+		
+		mov esi, offset validDirectionsArr
+
+	insertUpIfValid:
+		cmp ghostUpValid, 1
+		jne insertLeftIfValid
+		mov al, 1
+		mov [esi], al
+		inc esi
+	insertLeftIfValid:
+		cmp ghostLeftValid, 1
+		jne insertDownIfValid
+		mov al, 2
+		mov [esi], al
+		inc esi
+	insertDownIfValid:
+		cmp ghostDownValid, 1
+		jne insertRightIfValid
+		mov al, 3
+		mov [esi], al
+		inc esi
+	insertRightIfValid:
+		cmp ghostRightValid, 1
+		jne validDirectionsArrayUpdated
+		mov al, 4
+		mov [esi], al
+
+validDirectionsArrayUpdated:
+		ret
+GenerateGhostDirectionPossibilities ENDP
+
+ClearGhostCurrent PROC
+	mov eax, black + (black*16)
+	call SetTextColor
+	mov dl, ghostX
+	mov dh, ghostY
+	mov xCharacterAt, dl
+	mov yCharacterAt, dh
+	call checkCharacterAtIndex
+	mov bl, al
+	mov dl,ghostX
+	mov dh,ghostY
+	call Gotoxy
+	call PrintCharacter
+	ret
+ClearGhostCurrent ENDP
+
+UpdateGhostPosition PROC
+
+updateGhostUpwards:
+	cmp ghostDirection, 1
+	jne updateGhostLeftwards
+
+	call DecrementGhostTy
+	jmp updateGhostCoordinates
+
+updateGhostLeftwards:
+	cmp ghostDirection, 2
+	jne updateGhostDownwards
+
+	call DecrementGhostTx
+	jmp updateGhostCoordinates
+
+updateGhostDownwards:
+	cmp ghostDirection, 3
+	jne updateGhostRightwards
+
+	call IncrementGhostTy
+	jmp updateGhostCoordinates
+
+updateGhostRightwards:
+	cmp ghostDirection, 4
+	jne updateGhostCoordinates
+
+	call IncrementGhostTx
+	jmp updateGhostCoordinates
+
+updateGhostCoordinates:
+
+	mov dl, tempGhostX
+	mov dh, tempGhostY
+
+checkGhostPortalAt8:
+	cmp dh, 8
+	jne checkGhostPortalAt17
+	jmp checkGhostPortalX
+
+checkGhostPortalAt17:
+	cmp dh, 17
+	jne NoTeleportGhost
+
+checkGhostPortalX:
+
+GhostRightSide:
+	cmp dl, 102
+	jne GhostLeftSide
+	mov dl, 1
+	jmp NoTeleportGhost
+
+GhostLeftSide:
+	cmp dl, 0
+	jne NoTeleportGhost
+	mov dl, 101
+
+NoTeleportGhost:
+	mov ghostX, dl
+	mov ghostY, dh
+	ret
+UpdateGhostPosition ENDP
+
+DrawGhost PROC
+	mov dl,ghostX
+	mov dh,ghostY
+	call Gotoxy
+
+	mov al, currentGhost
+Blinky:
+	cmp al, 1
+	jne Pinky
+	mov eax, red + (lightRed*16)
+	call SetTextColor
+	mov al, 146
+	jmp printGhost
+Pinky:
+	cmp al, 2
+	jne Inky
+	mov eax, magenta + (lightMagenta*16)
+	call SetTextColor
+	mov al, 157
+	jmp printGhost
+Inky:
+	cmp al, 3
+	jne Clyde
+	mov eax, cyan + (lightCyan*16)
+	call SetTextColor
+	mov al, 168
+	jmp printGhost
+Clyde:
+	cmp al, 4
+	jne printGhost
+	mov eax, green + (lightGreen*16)
+	call setTextColor
+	mov al, 128
+
+printGhost:
+	call WriteChar
+	ret
+DrawGhost ENDP
+
+CheckGhostCollisionUp PROC
+	call DecrementGhostTy
+	call checkGhostWallatTemp
+	ret
+CheckGhostCollisionUp ENDP
+
+CheckGhostCollisionDown PROC
+	call IncrementGhostTy
+	call checkGhostWallatTemp
+	ret
+CheckGhostCollisionDown ENDP
+
+CheckGhostCollisionLeft PROC
+	call DecrementGhostTx
+	call checkGhostWallatTemp
+	ret
+CheckGhostCollisionLeft ENDP
+
+CheckGhostCollisionRight PROC
+	call IncrementGhostTx
+	call checkGhostWallatTemp
+	ret
+CheckGhostCollisionRight ENDP
+
+IncrementGhostTy PROC
+	mov dl, ghostX
+	mov dh, ghostY
+	inc dh
+	mov tempGhostX, dl
+	mov tempGhostY, dh
+	ret
+IncrementGhostTy ENDP
+
+DecrementGhostTy PROC
+	mov dl, ghostX
+	mov dh, ghostY
+	dec dh
+	mov tempGhostX, dl
+	mov tempGhostY, dh
+	ret
+DecrementGhostTy ENDP
+
+DecrementGhostTx PROC
+	mov dl, ghostX
+	mov dh, ghostY
+	dec dl
+	mov tempGhostX, dl
+	mov tempGhostY, dh
+	ret
+DecrementGhostTx ENDP
+
+IncrementGhostTx PROC
+	mov dl, ghostX
+	mov dh, ghostY
+	inc dl
+	mov tempGhostX, dl
+	mov tempGhostY, dh
+	ret
+IncrementGhostTx ENDP
+
+CheckGhostWallatTemp PROC
+	xor edx, edx
+	mov dl, tempGhostX
+	mov dh, tempGhostY
+	mov xCharacterAt, dl
+	mov yCharacterAt, dh
+	call checkCharacterAtIndex
+
+	mov al, characterAtXY
+	cmp al, wall
+	jne checkEntrance
+
+ghostWallCollision:
+	mov ghostCollision, 1
+	jmp updateCollision
+
+checkEntrance:
+	cmp al, bar
+	jne noGhostWallCollision
+	jmp ghostWallCollision
+
+noGhostWallCollision:
+	mov ghostCollision, 0
+	jmp updateCollision
+
+updateCollision:
+	ret
+CheckGhostWallatTemp ENDP
+
 ;;;;;Screen and Print Procedures;;;;;
-
-
 
 CreditScreen PROC
 	call clrscr
@@ -1360,7 +1861,7 @@ SetupGameScreen PROC
 	mov edx, offset scoreText
 	call WriteString
 
-	mov dl, 56
+	mov dl, 55
 	mov dh, 22
 	mov xPos, dl
 	mov yPos, dh
@@ -1373,6 +1874,7 @@ SetupGameScreen PROC
 	call WriteString	
 
 	call ReadyTextAnimation
+	call DisplayBestScore
 	ret
 SetupGameScreen ENDP
 
@@ -1505,11 +2007,36 @@ keepPaused:
 
 PauseScreen ENDP
 
+DisplayBestScore PROC
+	mov ax, score
+	mov bx, allTimeHighscore
+	cmp ax, bx
+	jbe OriginalHighscore
+	jmp currentScore
+originalHighscore:
+	mov ax, allTimeHighscore
+currentScore:
+	mov dl, 46
+	mov dh, 14
+	call gotoxy
+	mov edx, OFFSET highscoreText
+	call WriteString
+	mov dl, 46
+	mov dh, 15
+	call gotoxy
+	mov edx, offset threeSpacesText
+	call WriteString
+	call WriteDec
+	mov edx, offset threeSpacesText
+	call WriteString
+	ret
+DisplayBestScore ENDP
+
 ReadyTextAnimation PROC
 	mov ecx, 5
 	mov esi, OFFSET readyText
 	mov dl, 49
-	mov dh, 15
+	mov dh, 16
 	call gotoxy
 
 writeReady:
@@ -1526,7 +2053,7 @@ writeReady:
 
 	mov ecx, 5
 	mov dl, 49
-	mov dh, 15
+	mov dh, 16
 	call gotoxy
 
 removeReady:
@@ -1651,13 +2178,13 @@ DisplayHighscores PROC
 	mov edx, OFFSET viewHighscores
 	call WriteString
 
-	mov edx,OFFSET filename
+	mov edx,OFFSET fileName
 	call OpenInputFile
 	mov fileHandle,eax
 
 	mov  eax,fileHandle
     mov  edx,OFFSET readBuffer
-    mov  ecx, 150 ; buffer size
+    mov  ecx, 200 ; buffer size
     call ReadFromFile
 
 	mov ecx, 200
