@@ -328,27 +328,6 @@ UTime ENDP
 
 ; ;;;;Game Procedures;;;;;
 
-EnterName PROC
-	call clrscr
-
-	mov dl, 0
-	mov dh, 6
-	call gotoxy
-
-	mov edx, OFFSET enterNameText
-	call WriteString
-
-	mov dl, 47
-	mov dh, 13
-	call gotoxy
-
-	mov edx, OFFSET playerName
-	mov ecx, 8
-	call ReadString
-
-	ret
-EnterName ENDP
-
 GetAllTimeHighscore PROC
 	mov edx,OFFSET fileName
 	call OpenInputFile
@@ -1858,6 +1837,27 @@ InstructionScreen PROC
 
 	ret
 InstructionScreen ENDP
+
+EnterName PROC
+	call clrscr
+
+	mov dl, 0
+	mov dh, 6
+	call gotoxy
+
+	mov edx, OFFSET enterNameText
+	call WriteString
+
+	mov dl, 47
+	mov dh, 13
+	call gotoxy
+
+	mov edx, OFFSET playerName
+	mov ecx, 8
+	call ReadString
+
+	ret
+EnterName ENDP
 
 SetupGameScreen PROC
 	call PrintMaze
