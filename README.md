@@ -155,8 +155,6 @@ Checks for collisions between a ghost and the wall when moving leftwards.
 **CheckGhostCollisionRight Procedure:**
 Checks for collisions between a ghost and the wall when moving rightwards.
 
-#### <u> GHOST HELPER FUNCTIONS </u>
-
 **IncrementGhostTy Procedure:**
 Increments the temporary Y-coordinate of the ghost.
 
